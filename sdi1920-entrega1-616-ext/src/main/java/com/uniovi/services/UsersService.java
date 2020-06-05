@@ -14,8 +14,9 @@ import com.uniovi.repositories.UsersRepository;
 
 @Service
 public class UsersService {
-	
+	@Autowired
 	private UsersRepository usersRepository;
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;	
 	
 	@PostConstruct
@@ -41,6 +42,7 @@ public class UsersService {
 	public void addUser(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		usersRepository.save(user);
+		System.out.println(user);
 	}
 	
 	/*

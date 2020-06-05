@@ -16,7 +16,7 @@
 					<li class="dropdown"><a id="btnLanguage" href="#"
 						class="dropdown-toggle" data-toggle="dropdown" role="button"
 						aria-haspopup="true" aria-expanded="false"> <span
-							th:text="#{language.message}">Idioma</span> <span class="caret"></span>
+							th:text="#{language.message}"></span> <span class="caret"></span>
 					</a>
 						<ul id="languageDropdownMenuButton" class="dropdown-menu">
 							<li><a id="btnEnglish" value="EN"><img
@@ -26,17 +26,17 @@
 							<li><a id="btnSpanish" value="ES"> <img
 									th:src="@{/img/if_spain_flag.png}"
 									style="border: 0; float: left; margin-right: 15px" /> <span
-									th:text="#{es.message}">Español</span>
+									th:text="#{es.message}"></span>
 							</a></li>
 						</ul></li>
 
 				</ul>
-				<li><a href="/signup"> <span
-						class="glyphicon glyphicon-user"></span> Registrate
+				<li><a href="/signup" th:text="#{signUp.message}"> <span
+						class="glyphicon glyphicon-signup" ></span>
 				</a></li>
 
-				<li><a href="/login"> <span
-						class="glyphicon glyphicon-log-in"></span> Identificate
+				<li><a href="/login" th:text="#{log.message}"><span
+						class="glyphicon glyphicon-log-in"></span> 
 				</a></li>
 				<li><a href="/logout"> <span
 						class="glyphicon glyphicon-log-out"></span> Desconectar
