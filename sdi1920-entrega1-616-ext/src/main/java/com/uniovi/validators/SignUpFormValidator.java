@@ -1,23 +1,22 @@
 package com.uniovi.validators;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Component;
 import org.springframework.validation.*;
 
 import com.uniovi.entities.User;
 import com.uniovi.services.UsersService;
 
-
 @Component
 public class SignUpFormValidator implements Validator {
 	@Autowired
 	private UsersService usersService;
-
+	
 	@Override
 	public boolean supports(Class<?> aClass) {
 		return User.class.equals(aClass);
 	}
-
 	@Override
 	public void validate(Object target, Errors errors) {
 		User user = (User) target;
@@ -28,7 +27,7 @@ public class SignUpFormValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Error.empty");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "Error.empty");
 		
-		if (user.getName().length() < 1 || user.getName().length() > 24) {
+		if (user.getName().length() < 2 || user.getName().length() > 24) {
 			errors.rejectValue("name", "Error.signup.name.length");
 		}
 		if (user.getLastName().length() < 2 || user.getPassword().length() > 30) {

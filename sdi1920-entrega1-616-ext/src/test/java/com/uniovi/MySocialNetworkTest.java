@@ -72,13 +72,15 @@ class MySocialNetworkTest {
 	// apellidos vacíos).
 	@Test
 	public void PR2() {
-		// Voy a la pagina
-		PO_HomeView.clickOption(driver, "/registrarse", "class", "btn btn-primary");
+		// Formulario
+		PO_HomeView.clickOption(driver, "signup", "id", "botonRegistrar");
 		// Rellenamos el formulario
 		PO_RegisterView.fillForm(driver, "", "", "", "12345", "12345");
-		// Comprobamos que no pasa nada porque es required a true
-		// Seguimos en la misma pagina
-		PO_View.checkElement(driver, "text", "Campos vacios");
+		// Comprobamos que salen los errores
+		PO_View.checkElement(driver, "text", "Este campo no puede ser vacío.");
+		PO_View.checkElement(driver, "text", "Este campo no puede ser vacío.");
+		PO_View.checkElement(driver, "text", "Este campo no puede ser vacío.");
+
 
 	}
 
@@ -100,7 +102,7 @@ class MySocialNetworkTest {
 		// Voy a la pagina
 		PO_HomeView.clickOption(driver, "/registrarse", "class", "btn btn-primary");
 		// Rellenamos el formulario
-		PO_RegisterView.fillForm(driver, "michu@michu.com", "Juan", "Fernandez", "12345", "12345");
+		PO_RegisterView.fillForm(driver, "alfonso@alfonso.com", "Juan", "Fernandez", "12345", "12345");
 		// Comprobamos que las contraseÃ±as no coinciden
 		PO_View.checkElement(driver, "text", "Ya existe un usuario con este email.");
 	}

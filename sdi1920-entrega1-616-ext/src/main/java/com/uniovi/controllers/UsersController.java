@@ -71,7 +71,7 @@ public class UsersController {
 	}
 	
 	/*
-	 * 
+	 * Metodo par acceder a la lista de usuarios
 	 */
 	
 	@RequestMapping("/user/list")

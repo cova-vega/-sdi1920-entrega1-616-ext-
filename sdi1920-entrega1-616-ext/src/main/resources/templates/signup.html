@@ -4,6 +4,7 @@
 <body>
 	<!-- Barra de Navegación superior -->
 	<nav th:replace="fragments/nav" />
+	
 	<div class="container">
 		<h2 th:text="#{signUp.message}"></h2>
 		<form class="form-horizontal" method="post" action="/signup"
@@ -30,14 +31,14 @@
 						th:errors="*{lastName}"></span>
 				</div>
 			</div>
+			
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="email"><span
 					th:text="#{email.message}"></span></label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" name="email"
-						placeholder="pepe@hotmail.com"  /> <span
-						class=text-danger th:if="${#fields.hasErrors('email')}"
-						th:errors="*{email}"/></span>
+						placeholder="correo@email.com" /> <span class=text-danger
+						th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 				</div>
 			</div>
 			<div class="form-group">

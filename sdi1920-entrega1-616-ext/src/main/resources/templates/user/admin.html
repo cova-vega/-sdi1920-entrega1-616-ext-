@@ -5,25 +5,23 @@
 	<!-- Barra de Navegación superior -->
 	<nav th:replace="fragments/nav" />
 	<div class="container">
-		<h2>Usuarios</h2>
-		<p>Los usuarios que actualmente figuran en el sistema son los
-			siguientes:</p>
+		<h2 th:text="#{users.message} "></h2>
+		<p th:text="#{usersOnSystem.message}"></p>
 		<form class="navbar-form" action="/user/admin">
  <div class="form-group">
  <input name="searchText" type="text" class="form-control" size="50"
  placeholder="Buscar por email o nombre del usuario" id=campoBusqueda>
  </div>
- <button type="submit" class="btn btn-default" id="buscar">Buscar</button>
+ <button type="submit" class="btn btn-default" id="buscar" th:text="#{search.message} "></button>
 </form>
 		<div class="table-responsive">
 			<table class="table table-hover">
 				<thead>
 					<tr>
 				
-						<th>Nombre</th>
-						<th>Apellido</th>
-						<th>Email</th>
-														
+						<th th:text="#{name.message} "></th>
+						<th th:text="#{lastName.message} "></th>
+						<th th:text="#{email.message} "></th>							
 						
 						<th class="col-md-1"></th>
 						<th class="col-md-1"></th>
