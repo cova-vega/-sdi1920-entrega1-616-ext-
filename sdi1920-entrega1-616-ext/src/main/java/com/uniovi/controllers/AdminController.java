@@ -20,6 +20,9 @@ public class AdminController {
 	@Autowired
 	public UsersService usersService;
 
+	/*
+	 * Metodo que devuelve una lista al administrador de todos los usuarios del sistema
+	 */
 	@RequestMapping("/user/admin")
 	public String getAdminList(Model model, Pageable pageable, Principal principal,
 			@RequestParam(value = "", required = false) String searchText) {

@@ -15,6 +15,7 @@
 				
 					<li><a th:text = "#{users.message}" sec:authorize="hasRole('ROLE_ESTANDAR')" href="/user/list"></a></li>
 					<li><a th:text = "#{admin.message}"  href="/user/admin"></a></li>
+					<li><a th:text = "#{request.message}" sec:authorize="hasRole('ROLE_ESTANDAR')" href="/request/list"></a></li>
 				</ul>
 				
 				<ul class="nav navbar-nav navbar-right">
@@ -38,7 +39,7 @@
 			
 				
 				<li><a  th:text="#{signUp.message}" sec:authorize="!isAuthenticated()" href="/signup" > <span
-						class="glyphicon glyphicon-signup" ></span>
+						class="glyphicon glyphicon-signup" id="btnRegistro" ></span>
 				</a></li>
 
 				<li><a  th:text="#{log.message}" sec:authorize="!isAuthenticated()" href="/login" ><span

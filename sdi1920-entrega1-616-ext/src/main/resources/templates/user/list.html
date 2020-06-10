@@ -21,7 +21,7 @@
 				
 						<th th:text="#{name.message} "></th>
 						<th th:text="#{email.message} "></th>
-														
+						<th th:text="#{addFriend.message} "></th>								
 						
 						<th class="col-md-1"></th>
 						<th class="col-md-1"></th>
@@ -36,7 +36,9 @@
 					
 						<td th:text="${user.name}"></td>
 						<td th:text="${user.email}"></td>
-						
+						<td> <a th:href="${'/user/send/' + user.id}" th:text="#{addFriend.message} " ></a></td>
+				</div>
+			</div>
 						
 					</tr>
 				</tbody>
