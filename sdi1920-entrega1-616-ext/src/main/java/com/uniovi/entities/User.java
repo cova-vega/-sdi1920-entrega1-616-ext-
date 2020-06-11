@@ -126,12 +126,12 @@ public class User {
 	}
 	public void addFriend(User friend) {
 		friends.add(friend);
-		friend.getFriends().add(this);
 
 	}
 	public boolean isFriend(User friend) {
 		return friends.contains(friend);
 	}
+	
 	public Page<User> getFriendsList() {
 		LinkedList<User> userFriends = new LinkedList<User>();
 		for (User friend : friends)

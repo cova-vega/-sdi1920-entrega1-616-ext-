@@ -7,7 +7,7 @@
 	<div class="container">
 		<h2>Amigos</h2>
 		
-		<form class="navbar-form" action="/user/friends">
+		<form class="navbar-form" action="/friends/list">
  
 </form>
 		<div class="table-responsive">
@@ -25,10 +25,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="f : ${friends}">
-						<td th:text="${f.user.name}"></td>
-						<td th:text="${f.user.lastName}"></td>
-						<td th:text="${f.user.email}"></td>
+					<tr th:each="user : ${friendsList}">
+						<td th:text="${user.name}"></td>
+						<td th:text="${user.lastName}"></td>
+						<td th:text="${user.email}"></td>
 						
 					</tr>
 				</tbody>

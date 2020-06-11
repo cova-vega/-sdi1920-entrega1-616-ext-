@@ -64,6 +64,7 @@ public class RequestController {
 		User emisor = usersService.getUserByEmail(email);
 		User receptor = usersService.getUser(id);
 		emisor.addFriend(receptor);
+		receptor.addFriend(emisor);
 		requestService.deleteRequest(emisor,receptor);
 		
 		return "redirect:/request/list";
