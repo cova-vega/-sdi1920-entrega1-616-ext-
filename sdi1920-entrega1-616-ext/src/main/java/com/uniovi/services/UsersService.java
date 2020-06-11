@@ -76,4 +76,5 @@ public class UsersService {
 		return usersRepository.searchByNameAndEmail("%" + searchText + "%",
 				pageable);
 	}
+
 }

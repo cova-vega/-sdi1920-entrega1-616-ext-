@@ -13,6 +13,7 @@ public class InsertSampleDataService {
 	private UsersService usersService;
 	@Autowired
 	private RolesService rolesService;
+	
 
 	@PostConstruct
 	public void init() {
@@ -37,6 +38,7 @@ public class InsertSampleDataService {
 		usersService.addUser(user4);
 
 
+		
 	}
 
 }

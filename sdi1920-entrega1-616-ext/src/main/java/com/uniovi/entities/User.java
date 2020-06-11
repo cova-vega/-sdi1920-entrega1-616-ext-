@@ -1,10 +1,13 @@
 package com.uniovi.entities;
 
 import java.util.HashSet;
-
+import java.util.LinkedList;
 import java.util.Set;
 
 import javax.persistence.*;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 
 @Entity
 @Table(name = "user")
@@ -26,6 +29,11 @@ public class User {
 
 	@OneToMany(mappedBy = "usuarioRecibidor", cascade = CascadeType.ALL)
 	private Set<Request> peticionesRecibidas = new HashSet<Request>();
+
+	// List of friends
+	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JoinTable(name = "friends", joinColumns = @JoinColumn(name = "friend_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
+	private Set<User> friends;
 
 	public User(String email, String name, String lastName) {
 		super();
@@ -108,7 +116,26 @@ public class User {
 	public void setPeticionesRecibidas(Set<Request> peticionesRecibidas) {
 		this.peticionesRecibidas = peticionesRecibidas;
 	}
-	
-	
 
+	public Set<User> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(Set<User> friends) {
+		this.friends = friends;
+	}
+	public void addFriend(User friend) {
+		friends.add(friend);
+		friend.getFriends().add(this);
+
+	}
+	public boolean isFriend(User friend) {
+		return friends.contains(friend);
+	}
+	public Page<User> getFriendsList() {
+		LinkedList<User> userFriends = new LinkedList<User>();
+		for (User friend : friends)
+			userFriends.add(friend);
+		return new PageImpl<User>(userFriends);
+	}
 }

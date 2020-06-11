@@ -25,7 +25,8 @@ public class RequestController {
 	
 	@Autowired
 	public RequestService requestService;
-	
+
+
 	/*
 	 * Metodo que saca la lista de peticiones
 	 */
@@ -62,7 +63,9 @@ public class RequestController {
 		String email = principal.getName();
 		User emisor = usersService.getUserByEmail(email);
 		User receptor = usersService.getUser(id);
-		requestService.deleteRequest(receptor, emisor);
+		emisor.addFriend(receptor);
+		requestService.deleteRequest(emisor,receptor);
+		
 		return "redirect:/request/list";
 	}
 	
