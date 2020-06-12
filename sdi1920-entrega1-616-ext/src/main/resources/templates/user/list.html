@@ -37,18 +37,13 @@
 						<td th:text="${user.name}"></td>
 						<td th:text="${user.email}"></td>
 						<td> <a th:href="${'/user/send/' + user.id}" th:text="#{addFriend.message} " ></a></td>
-				</div>
-			</div>
 						
 					</tr>
 				</tbody>
 			</table>
 		</div>
+		 <footer th:replace="fragments/pagination"/>
 	</div>
-	</div>
- <footer th:replace="fragments/pagination"/>
-
-</div>
 	<footer th:replace="fragments/footer" />
 </body>
 </html>
