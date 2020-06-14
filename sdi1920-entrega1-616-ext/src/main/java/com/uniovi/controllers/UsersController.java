@@ -37,7 +37,8 @@ public class UsersController {
 	 * Metodo GET de Idenficacion
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Model model) {
+	public String login(Model model, @RequestParam(name = "error", required = false) String error) {
+		model.addAttribute("error", error);
 		return "login";
 	}
 
@@ -67,7 +68,7 @@ public class UsersController {
 		user.setRole(rolesService.getRoles()[1]);
 		usersService.addUser(user);
 		securityService.autoLogin(user.getEmail(), user.getPasswordConfirm());
-		return "redirect:home";
+		return "redirect:user/list";
 	}
 	
 	/*
