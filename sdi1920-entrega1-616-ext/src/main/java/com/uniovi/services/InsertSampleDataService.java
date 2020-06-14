@@ -74,6 +74,10 @@ public class InsertSampleDataService {
 		user14.setPassword("123456");
 		user14.setRole(rolesService.getRoles()[1]);
 		
+		User user15 = new User("jimmy@jimmy.com", "Jaime", "Suarez");
+		user15.setPassword("123456");
+		user15.setRole(rolesService.getRoles()[1]);
+		
 		
 		usersService.addUser(user1);
 		usersService.addUser(user2);
@@ -89,6 +93,7 @@ public class InsertSampleDataService {
 		usersService.addUser(user12);
 		usersService.addUser(user13);
 		usersService.addUser(user14);
+		usersService.addUser(user15);
 
 
 

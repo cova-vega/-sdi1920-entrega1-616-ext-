@@ -14,7 +14,7 @@ public class PO_ListUser extends PO_NavView{
 
 	public static void fillForm(WebDriver driver, String searchp) {
 
-		WebElement search = driver.findElement(By.name("busqueda"));
+		WebElement search = driver.findElement(By.name("searchText"));
 		search.click();
 		search.clear();
 		search.sendKeys(searchp);

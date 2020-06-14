@@ -38,4 +38,5 @@ public class AdminController {
 		model.addAttribute("page", user);
 		return "user/admin";
 	}
+	
 }

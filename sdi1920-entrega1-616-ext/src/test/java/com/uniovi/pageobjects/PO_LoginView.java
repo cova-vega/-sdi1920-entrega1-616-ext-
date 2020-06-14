@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 public class PO_LoginView {
 	public static void fillForm(WebDriver driver, String emailp, String passwordp) {
 
-		WebElement email = driver.findElement(By.name("email"));
+		WebElement email = driver.findElement(By.name("username"));
 		email.click();
 		email.clear();
 		email.sendKeys(emailp);
@@ -16,7 +16,7 @@ public class PO_LoginView {
 		password.clear();
 		password.sendKeys(passwordp);
 		//Pulsar el boton de login.
-		By boton = By.id("btnAceptar");
+		By boton = By.id("botonIdentificar");
 		driver.findElement(boton).click();
 		
 	}
