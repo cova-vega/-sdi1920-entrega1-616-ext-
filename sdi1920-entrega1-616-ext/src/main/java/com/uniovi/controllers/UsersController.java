@@ -90,11 +90,11 @@ public class UsersController {
 			user = usersService.getUsersForUser(pageable,usersLog);
 		}
 		
-//		Page<User> requestList = RequestService.getUsuariosRecibidores(pageable, usersLog.getId());
-//		Page<User> friendsList = usersLog.getFriendsList();
-//		
-//		model.addAttribute("friendsList", friendsList.getContent());
-//		model.addAttribute("peticionsList", requestList.getContent());
+		Page<User> requestList = RequestService.getUsuariosRecibidores(pageable, usersLog.getId());
+		Page<User> friendsList = usersLog.getFriendsList();
+		
+		model.addAttribute("friendsList", friendsList.getContent());
+		model.addAttribute("requestList", requestList.getContent());
 		model.addAttribute("userList", user.getContent());
 		model.addAttribute("usersLog", usersLog);
 		model.addAttribute("page", user);
