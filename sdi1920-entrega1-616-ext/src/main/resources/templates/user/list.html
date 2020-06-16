@@ -36,7 +36,7 @@
 					
 						<td th:text="${user.name}"></td>
 						<td th:text="${user.email}"></td>
-						<td>  <a th:if = "$!user.isFriend(usersLog)" th:href="${'/user/send/' + user.id}" th:text="#{addFriend.message} " ></a></td>
+						<td>  <a th:href="${'/user/send/' + user.id}" th:text="#{addFriend.message} " ></a></td>
 							
 					</tr>
 				</tbody>

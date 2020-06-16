@@ -73,7 +73,6 @@ public class SocialNetworkTest {
 		// [Prueba1] Registro de Usuario con datos válidos.
 		@Test
 		public void PR1() {
-//			driver.navigate().to("http://localhost:8090/signup");
 //			// Voy a la pagina
 			PO_HomeView.clickOption(driver, "signup", "id", "botonRegistrar");
 			// Rellenamos el formulario.
@@ -482,7 +481,90 @@ public class SocialNetworkTest {
 		}
 		//[Prueba32] Ir a la lista de usuarios, borrar el primer usuario de la lista, 
 		//comprobar que la lista se actualiza y dicho usuario desaparece. 
+		@Test
+		public void PR32() {
+			// Vamos al formulario de logueo.
+			PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+			// Rellenamos el formulario
+			PO_LoginView.fillForm(driver, "admin@email.com", "admin");
+			// Vamos al menu de usuarios
+			driver.navigate().to("http://localhost:8090/admin/list");
+			// Primera pagina
+			List<WebElement> elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr",
+					PO_View.getTimeout());
+			assertTrue(elementos.size() == 5);
+			driver.navigate().to("http://localhost:8090/admin/list?page=0");
+			elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", "Borrar usuario", PO_View.getTimeout());
+			elementos.get(0).click();
+			driver.navigate().to("http://localhost:8090/admin/list?page=0");
+			SeleniumUtils.textoNoPresentePagina(driver, "Alfonso");
+			// Nos desconectamos
+			PO_HomeView.clickOption(driver, "logout", "class", "btn btn-primary");
+
+		}
 		//[Prueba33] Ir a la lista de usuarios,borrar el último usuario de la lista, 
 		//comprobar que la lista se actualiza y dicho usuario desaparece. 
+		@Test
+		public void PR33() {
+			// Vamos al formulario de logueo.
+			PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+			// Rellenamos el formulario
+			PO_LoginView.fillForm(driver, "admin@email.com", "admin");
+			// Vamos al menu de usuarios
+			driver.navigate().to("http://localhost:8090/admin/list");
+			// Primera pagina
+			List<WebElement> elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr",
+					PO_View.getTimeout());
+			assertTrue(elementos.size() == 5);
+			driver.navigate().to("http://localhost:8090/admin/list?page=0");
+			// Segunda pagina
+			elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr", PO_View.getTimeout());
+			assertTrue(elementos.size() == 5);
+			driver.navigate().to("http://localhost:8090/admin/list?page=1");
+			// Ultima pagina
+			elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr", PO_View.getTimeout());
+			assertTrue(elementos.size() == 5);
+			driver.navigate().to("http://localhost:8090/admin/list?page=2");
+			//Borramos el ultimo usuario
+			elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", "Borrar usuario", PO_View.getTimeout());
+			elementos.get(elementos.size()-1).click();
+			driver.navigate().to("http://localhost:8090/admin/list?page=2");
+			SeleniumUtils.textoNoPresentePagina(driver, "Sergio");
+			// Nos desconectamos
+			PO_HomeView.clickOption(driver, "logout", "class", "btn btn-primary");
+
+		}
 		//[Prueba34] Ir a la lista de usuarios, borrar 3 usuarios, comprobar que la lista se actualiza y dichos usuarios desaparecen. 
+		@Test
+		public void PR34() {
+			// Vamos al formulario de logueo.
+			PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+			// Rellenamos el formulario
+			PO_LoginView.fillForm(driver, "admin@email.com", "admin");
+			// Vamos al menu de usuarios
+			driver.navigate().to("http://localhost:8090/admin/list");
+			// Primera pagina
+			List<WebElement> elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr",
+					PO_View.getTimeout());
+			assertTrue(elementos.size() == 5);
+			driver.navigate().to("http://localhost:8090/admin/list?page=0");
+			// Segunda pagina
+			elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr", PO_View.getTimeout());
+			assertTrue(elementos.size() == 5);
+			driver.navigate().to("http://localhost:8090/admin/list?page=1");
+			//Borramos los 3 usuarios
+			elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", "Borrar usuario", PO_View.getTimeout());
+			elementos.get(0).click();
+			elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", "Borrar usuario", PO_View.getTimeout());
+			elementos.get(1).click();
+			elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", "Borrar usuario", PO_View.getTimeout());
+			elementos.get(2).click();			
+			driver.navigate().to("http://localhost:8090/admin/list?page=1");
+			SeleniumUtils.textoNoPresentePagina(driver, "Rodri");
+			SeleniumUtils.textoNoPresentePagina(driver, "Saul");
+			SeleniumUtils.textoNoPresentePagina(driver, "Luismi");
+			// Nos desconectamos
+			PO_HomeView.clickOption(driver, "logout", "class", "btn btn-primary");
+
+		}
 	}
