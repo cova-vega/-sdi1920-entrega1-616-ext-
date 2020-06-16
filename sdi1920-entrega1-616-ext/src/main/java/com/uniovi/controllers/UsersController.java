@@ -96,7 +96,6 @@ public class UsersController {
 		model.addAttribute("friendsList", friendsList.getContent());
 		model.addAttribute("requestList", requestList.getContent());
 		model.addAttribute("userList", user.getContent());
-		model.addAttribute("usersLog", usersLog);
 		model.addAttribute("page", user);
 		return "user/list";
 	}
