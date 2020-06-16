@@ -138,4 +138,11 @@ public class User {
 			userFriends.add(friend);
 		return new PageImpl<User>(userFriends);
 	}
+	
+	public void borrarListaAmigos(User user) {
+		for(User friend : friends)
+			friend.getFriends().remove(user);
+		friends = new HashSet<User>();
+		
+	}
 }

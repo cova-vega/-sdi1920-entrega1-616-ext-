@@ -28,9 +28,8 @@ public class UsersService {
 	/*
 	 * Metodo que retorna una lista de todos los usuarios del sistema
 	 */
-	public List<User> getUsers() {
-		List<User> users = new ArrayList<User>();
-		usersRepository.findAll().forEach(users::add);
+	public Page<User> getUsers(Pageable pageable) {
+		Page<User> users = usersRepository.findAll(pageable);
 		return users;
 	}
 

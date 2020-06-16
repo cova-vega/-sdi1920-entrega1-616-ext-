@@ -462,22 +462,27 @@ public class SocialNetworkTest {
 			// Rellenamos el formulario
 			PO_LoginView.fillForm(driver, "admin@email.com", "admin");
 			// Vamos al menu de usuarios
-			driver.navigate().to("http://localhost:8090/user/list");
+			driver.navigate().to("http://localhost:8090/admin/list");
 			// Primera pagina
 			List<WebElement> elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr",
 					PO_View.getTimeout());
 			assertTrue(elementos.size() == 5);
-			driver.navigate().to("http://localhost:8090/user/list?page=0");
+			driver.navigate().to("http://localhost:8090/admin/list?page=0");
 			// Segunda pagina
 			elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr", PO_View.getTimeout());
 			assertTrue(elementos.size() == 5);
-			driver.navigate().to("http://localhost:8090/user/list?page=1");
+			driver.navigate().to("http://localhost:8090/admin/list?page=1");
 			// Ultima pagina
 			elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr", PO_View.getTimeout());
 			assertTrue(elementos.size() == 5);
-			driver.navigate().to("http://localhost:8090/user/list?page=2");
+			driver.navigate().to("http://localhost:8090/admin/list?page=2");
 			// Nos desconectamos
 			PO_HomeView.clickOption(driver, "logout", "class", "btn btn-primary");
 
 		}
+		//[Prueba32] Ir a la lista de usuarios, borrar el primer usuario de la lista, 
+		//comprobar que la lista se actualiza y dicho usuario desaparece. 
+		//[Prueba33] Ir a la lista de usuarios,borrar el último usuario de la lista, 
+		//comprobar que la lista se actualiza y dicho usuario desaparece. 
+		//[Prueba34] Ir a la lista de usuarios, borrar 3 usuarios, comprobar que la lista se actualiza y dichos usuarios desaparecen. 
 	}

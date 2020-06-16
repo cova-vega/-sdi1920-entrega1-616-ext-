@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.data.domain.Page;
@@ -23,7 +24,7 @@ public class AdminController {
 	/*
 	 * Metodo que devuelve una lista al administrador de todos los usuarios del sistema
 	 */
-	@RequestMapping("/user/admin")
+	@RequestMapping("/admin/list")
 	public String getAdminList(Model model, Pageable pageable, Principal principal,
 			@RequestParam(value = "", required = false) String searchText) {
 		String email = principal.getName();
@@ -34,9 +35,25 @@ public class AdminController {
 		} else {
 			user = usersService.getUsersForUser(pageable,usersLog);
 		}
-		model.addAttribute("userAdmin", user.getContent());
+		model.addAttribute("usersList", user.getContent());
 		model.addAttribute("page", user);
-		return "user/admin";
+		return "/admin/list";
+	}
+	@RequestMapping("/admin/list/update")
+	public String updateList(Model model, Pageable pageable) {
+		Page<User> users = usersService.getUsers(pageable);
+		model.addAttribute("usersList", users.getContent());
+		return "admin/list :: tableUsers";
+	}
+	
+	
+	@RequestMapping("/admin/{id}/delete" )
+	public String delete(@PathVariable Long id){
+		User user = usersService.getUser(id);
+		user.borrarListaAmigos(user);
+		usersService.addUser(user);
+		usersService.deleteUser(id);
+		return "redirect:/user/list";
 	}
 	
 }

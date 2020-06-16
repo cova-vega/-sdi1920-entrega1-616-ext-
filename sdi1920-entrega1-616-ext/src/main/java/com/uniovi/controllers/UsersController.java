@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.uniovi.entities.User;
+import com.uniovi.services.RequestService;
 import com.uniovi.services.RolesService;
 import com.uniovi.services.SecurityService;
 import com.uniovi.services.UsersService;
@@ -32,6 +33,8 @@ public class UsersController {
 	private SignUpFormValidator signUpFormValidator;
 	@Autowired
 	private RolesService rolesService;
+	@Autowired
+	private RequestService RequestService;
 
 	/*
 	 * Metodo GET de Idenficacion
@@ -86,8 +89,25 @@ public class UsersController {
 		} else {
 			user = usersService.getUsersForUser(pageable,usersLog);
 		}
+		
+//		Page<User> requestList = RequestService.getUsuariosRecibidores(pageable, usersLog.getId());
+//		Page<User> friendsList = usersLog.getFriendsList();
+//		
+//		model.addAttribute("friendsList", friendsList.getContent());
+//		model.addAttribute("peticionsList", requestList.getContent());
 		model.addAttribute("userList", user.getContent());
+		model.addAttribute("usersLog", usersLog);
 		model.addAttribute("page", user);
 		return "user/list";
+	}
+	
+	/*
+	 * Metodo que actualiza la lista de usuarios
+	 */
+	@RequestMapping("/user/list/update")
+	public String updateList(Model model, Pageable pageable) { 
+		Page<User> users = usersService.getUsers(pageable);
+		model.addAttribute("usersList", users.getContent());
+		return "user/list :: tableUser";
 	}
 }

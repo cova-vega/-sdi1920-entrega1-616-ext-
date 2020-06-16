@@ -14,7 +14,7 @@
 				<li><a href="/home">Home</a></li>
 				
 					<li><a th:text = "#{users.message}" sec:authorize="hasRole('ROLE_ESTANDAR')" href="/user/list"></a></li>
-					<li><a th:text = "#{admin.message}"  href="/user/admin"></a></li>
+					<li><a th:text = "#{admin.message}"  href="/admin/list"></a></li>
 					<li><a th:text = "#{request.message}" sec:authorize="hasRole('ROLE_ESTANDAR')" href="/request/list"></a></li>
 					<li><a th:text = "#{friends.message}"  href="/friend/list"></a></li>
 				</ul>

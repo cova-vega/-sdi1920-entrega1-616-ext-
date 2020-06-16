@@ -7,7 +7,7 @@
 	<div class="container">
 		<h2 th:text="#{users.message} "></h2>
 		<p th:text="#{usersOnSystem.message}"></p>
-		<form class="navbar-form" action="/user/list>
+		<form class="navbar-form" action="/admin/list">
  <div class="form-group">
  <input name="searchText" type="text" class="form-control" size="50"
  placeholder="Buscar por email o nombre del usuario" id=campoBusqueda>
@@ -15,7 +15,7 @@
  <button type="submit" class="btn btn-default" id="buscar" th:text="#{search.message} "></button>
 </form>
 		<div class="table-responsive">
-			<table class="table table-hover">
+			<table class="table table-hover" id="tableUsers">
 				<thead>
 					<tr>
 				
@@ -36,6 +36,28 @@
 						<td th:text="${user.name}"></td>
 						<td th:text="${user.lastName}"></td>
 						<td th:text="${user.email}"></td>
+						<td>
+						<button th:text="#{deleteButton.message}" type=" button" th:id="${'deleteButton' + user.id}" class="btn btn-if" >
+								</button> 
+								<script th:inline="javascript">
+									/*<![CDATA[*/
+									$("#deleteButton[[${user.id}]]")
+											.click(function() { 
+												$.get( "/admin/[[${user.id}]]/delete",function(data) {
+													 var numberPage = [[${param.page}]];
+													 var urlUpdate = '/admin/list/update';
+													 if ( numberPage != null ){
+													 urlUpdate += "?page="+numberPage[0];
+													 }
+													$("#tableUsers").load(urlUpdate);
+													
+													
+												});
+												$("#deleteButton[[${user.id}]]").attr('disabled', true);
+											});
+									/*]]>*/
+								</script>	
+						</td>
 						
 						
 					</tr>
