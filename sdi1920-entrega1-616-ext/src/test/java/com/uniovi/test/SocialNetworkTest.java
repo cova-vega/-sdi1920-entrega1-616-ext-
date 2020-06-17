@@ -658,14 +658,12 @@ public class SocialNetworkTest {
 		// Borramos los 3 usuarios
 		elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", "Borrar usuario", PO_View.getTimeout());
 		elementos.get(0).click();
-		elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", "Borrar usuario", PO_View.getTimeout());
 		elementos.get(1).click();
-		elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", "Borrar usuario", PO_View.getTimeout());
 		elementos.get(2).click();
 		driver.navigate().to("http://localhost:8090/admin/list?page=1");
+		SeleniumUtils.textoNoPresentePagina(driver, "Marco");
+		SeleniumUtils.textoNoPresentePagina(driver, "Borja");
 		SeleniumUtils.textoNoPresentePagina(driver, "Rodri");
-		SeleniumUtils.textoNoPresentePagina(driver, "Saul");
-		SeleniumUtils.textoNoPresentePagina(driver, "Luismi");
 		// Nos desconectamos
 		PO_HomeView.clickOption(driver, "logout", "class", "btn btn-primary");
 

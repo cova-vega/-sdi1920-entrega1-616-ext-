@@ -15,7 +15,7 @@
  <button type="submit" class="btn btn-default" id="buscar" th:text="#{search.message} "></button>
 </form>
 		<div class="table-responsive">
-			<table class="table table-hover" id="tableUsers">
+			<table class="table table-hover" >
 				<thead>
 					<tr>
 				
@@ -31,7 +31,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="user : ${usersList}">
+					<tr th:each="user : ${adminList}">
 					
 						<td th:text="${user.name}"></td>
 						<td th:text="${user.lastName}"></td>
@@ -43,7 +43,7 @@
 									/*<![CDATA[*/
 									$("#deleteButton[[${user.id}]]")
 											.click(function() { 
-												$.get( "/admin/[[${user.id}]]/delete",function(data) {
+												$.get( "/admin/delete/[[${user.id}]]",function(data) {
 													 var numberPage = [[${param.page}]];
 													 var urlUpdate = '/admin/list/update';
 													 if ( numberPage != null ){

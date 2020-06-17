@@ -35,25 +35,25 @@ public class AdminController {
 		} else {
 			user = usersService.getUsersForUser(pageable,usersLog);
 		}
-		model.addAttribute("usersList", user.getContent());
+		model.addAttribute("adminList", user.getContent());
 		model.addAttribute("page", user);
 		return "/admin/list";
 	}
 	@RequestMapping("/admin/list/update")
 	public String updateList(Model model, Pageable pageable) {
 		Page<User> users = usersService.getUsers(pageable);
-		model.addAttribute("usersList", users.getContent());
+		model.addAttribute("adminList", users.getContent());
 		return "admin/list :: tableUsers";
 	}
 	
 	
-	@RequestMapping("/admin/{id}/delete" )
+	@RequestMapping("/admin/delete/{id}" )
 	public String delete(@PathVariable Long id){
 		User user = usersService.getUser(id);
 		user.borrarListaAmigos(user);
 		usersService.addUser(user);
 		usersService.deleteUser(id);
-		return "redirect:/user/list";
+		return "redirect:/admin/list";
 	}
 	
 }
