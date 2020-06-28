@@ -144,5 +144,5 @@ public class User {
 			friend.getFriends().remove(user);
 		friends = new HashSet<User>();
 		
-	}
+	}             
 }
