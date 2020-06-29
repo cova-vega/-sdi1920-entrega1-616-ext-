@@ -4,7 +4,7 @@
 <body>
 	<!-- Barra de Navegación superior -->
 	<nav th:replace="fragments/nav" />
-	
+
 	<div class="container">
 		<h2 th:text="#{signUp.message}"></h2>
 		<form class="form-horizontal" method="post" action="/signup"
@@ -15,9 +15,8 @@
 					th:text="#{name.message}"></label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" name="name"
-						placeholder="Ejemplo: Juan" /> <span
-						class="text-danger" th:if="${#fields.hasErrors('name')}"
-						th:errors="*{name}"></span>
+						placeholder="Ejemplo: Juan" /> <span class="text-danger"
+						th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
 				</div>
 			</div>
 			<div class="form-group">
@@ -25,13 +24,11 @@
 					th:text="#{lastName.message}"></label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" name="lastName"
-						placeholder="Ejemplo: Perez Almonte" /> 
-						<span
-						class="text-danger" th:if="${#fields.hasErrors('lastName')}"
-						th:errors="*{lastName}"></span>
+						placeholder="Ejemplo: Perez Almonte" /> <span class="text-danger"
+						th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="email"><span
 					th:text="#{email.message}"></span></label>
@@ -42,13 +39,45 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="control-label col-sm-2" for="direccion"><span
+					>Direccion</span></label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="direccion"
+						placeholder="calle..." /> <span class=text-danger
+						th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="comunidad">Comunidad:</label>
+				<div class="col-sm-10">
+					<select id="provincia" name="comunidad">
+						<option value="Asturias">Asturias</option>
+						<option value="Madrid">Madrid</option>
+						<option value="Andalucía"> Andalucía</option>
+						<option value="Aragón"> Aragón</option>
+						<option value="Murcia"> Murcia</option>
+						<option value="Galicia"> Galicia</option>
+						<option value="Cantabria">Cantabria</option>
+						<option value="País Vasco"> País Vasco</option>
+						<option value="Navarra"> Navarra</option>
+						<option value="Cataluña">  Cataluña</option>
+						<option value=" Castilla y León">  Castilla y León</option>
+						<option value="Castilla La Mancha"> Castilla La Mancha</option>
+						<option value="Comunidad Valenciana"> Comunidad Valenciana</option>
+						<option value=" Extremadura">  Extremadura</option>
+						<option value=" Baleares ">  Baleares </option>
+						<option value="Canarias">  Canarias </option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="control-label col-sm-2" for="password"
 					th:text="#{password.message}"></label>
 				<div class="col-sm-10">
 					<input type="password" class="form-control" name="password"
-						placeholder="Entre el Password" /> <span
-						class="text-danger" th:if="${#fields.hasErrors('password')}"
-						th:errors="*{password}"> </span>
+						placeholder="Entre el Password" /> <span class="text-danger"
+						th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+					</span>
 				</div>
 			</div>
 			<div class="form-group">
@@ -56,7 +85,7 @@
 					th:text="#{passwordConfirm.message}"></label>
 				<div class="col-sm-10">
 					<input type="password" class="form-control" name="passwordConfirm"
-						placeholder="Repita el Password"  /> <span class="text-danger"
+						placeholder="Repita el Password" /> <span class="text-danger"
 						th:if="${#fields.hasErrors('passwordConfirm')}"
 						th:errors="*{passwordConfirm}"></span>
 				</div>

@@ -18,63 +18,63 @@ public class InsertSampleDataService {
 	@PostConstruct
 	public void init() {
 
-		User user1 = new User("alfonso@alfonso.com", "Alfonso", "Herrero");
+		User user1 = new User("alfonso@alfonso.com", "Alfonso", "Herrero","Tartiere","Canarias");
 		user1.setPassword("123456");
 		user1.setRole(rolesService.getRoles()[1]);
 		
-		User user2 = new User("grippo@grippo.com", "Simone", "Grippo");
+		User user2 = new User("grippo@grippo.com", "Simone", "Grippo","Tartiere","Canarias");
 		user2.setPassword("123456");
 		user2.setRole(rolesService.getRoles()[1]);
 		
-		User user3 = new User("arribas@arribas.com", "Alejandro", "Arribas");
+		User user3 = new User("arribas@arribas.com", "Alejandro", "Arribas","Tartiere","Asturias");
 		user3.setPassword("123456");
 		user3.setRole(rolesService.getRoles()[1]);
 		
-		User user4 = new User("admin@email.com ", "Admin", "Admin");
+		User user4 = new User("admin@email.com ", "Admin", "Admin","Tartiere","Castilla la Mancha");
 		user4.setPassword("admin");
 		user4.setRole(rolesService.getRoles()[0]);
 		
-		User user5 = new User("christian@christian.com", "Christian", "Fernandez");
+		User user5 = new User("christian@christian.com", "Christian", "Fernandez","Tartiere","Asturias");
 		user5.setPassword("123456");
 		user5.setRole(rolesService.getRoles()[1]);
 		
-		User user6 = new User("carlos@carlos.com", "Carlos", "Hernandez");
+		User user6 = new User("carlos@carlos.com", "Carlos", "Hernandez","Tartiere","Baleares");
 		user6.setPassword("123456");
 		user6.setRole(rolesService.getRoles()[1]);
 		
-		User user7 = new User("sangalli@sangalli.com", "Marco", "Sangalli");
+		User user7 = new User("sangalli@sangalli.com", "Marco", "Sangalli","Tartiere","Comunidad Valenciana");
 		user7.setPassword("123456");
 		user7.setRole(rolesService.getRoles()[1]);
 		
-		User user8 = new User("borja@borja.com", "Borja", "Sanchez");
+		User user8 = new User("borja@borja.com", "Borja", "Sanchez","Tartiere","Canarias");
 		user8.setPassword("123456");
 		user8.setRole(rolesService.getRoles()[1]);
 		
-		User user9 = new User("rodri@rodri.com", "Rodri", "Rios");
+		User user9 = new User("rodri@rodri.com", "Rodri", "Rios","Tartiere","Canarias");
 		user9.setPassword("123456");
 		user9.setRole(rolesService.getRoles()[1]);
 		
-		User user10 = new User("berjon@berjon.com", "Saul", "Berjon");
+		User user10 = new User("berjon@berjon.com", "Saul", "Berjon","Tartiere","Canarias");
 		user10.setPassword("123456");
 		user10.setRole(rolesService.getRoles()[1]);
 		
-		User user11 = new User("luismi@luismi.com", "Luismi", "Sanchez");
+		User user11 = new User("luismi@luismi.com", "Luismi", "Sanchez","Tartiere","Canarias");
 		user11.setPassword("123456");
 		user11.setRole(rolesService.getRoles()[1]);
 		
-		User user12 = new User("mossa@mossa.com", "Mossa", "Angresola");
+		User user12 = new User("mossa@mossa.com", "Mossa", "Angresola","Tartiere","Canarias");
 		user12.setPassword("123456");
 		user12.setRole(rolesService.getRoles()[1]);
 		
-		User user13 = new User("juanjo@juanjo.com", "Juanjo", "Nieto");
+		User user13 = new User("juanjo@juanjo.com", "Juanjo", "Nieto","Tartiere","Cantabria");
 		user13.setPassword("123456");
 		user13.setRole(rolesService.getRoles()[1]);
 		
-		User user14 = new User("ortuño@ortuño.com", "Alfredo", "Ortuño");
+		User user14 = new User("ortuño@ortuño.com", "Alfredo", "Ortuño","Tartiere","Cantabria");
 		user14.setPassword("123456");
 		user14.setRole(rolesService.getRoles()[1]);
 		
-		User user15 = new User("jimmy@jimmy.com", "Jaime", "Suarez");
+		User user15 = new User("jimmy@jimmy.com", "Jaime", "Suarez","Tartiere","Cantabria");
 		user15.setPassword("123456");
 		user15.setRole(rolesService.getRoles()[1]);
 		

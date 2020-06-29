@@ -75,5 +75,13 @@ public class UsersService {
 		return usersRepository.searchByNameAndEmail("%" + searchText + "%",
 				pageable);
 	}
+	/*
+	 * Metodo que con filtra por email
+	 */
+	public Page<User> searchUserByNameAndComunidad(String searchText,
+			Pageable pageable) {
+		return usersRepository.searchByNameAndComunidad("%" + searchText + "%",
+				pageable);
+	}
 
 }

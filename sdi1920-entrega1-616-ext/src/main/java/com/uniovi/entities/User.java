@@ -19,9 +19,11 @@ public class User {
 	private String lastName;
 	private String email;
 	private String password;
+	private String direccion;
+	private String comunidad;
 	@Transient // propiedad que no se almacena en la tabla
 	private String passwordConfirm;
-
+	
 	private String role;
 
 	@OneToMany(mappedBy = "usuarioEnviador", cascade = CascadeType.ALL)
@@ -35,11 +37,13 @@ public class User {
 	@JoinTable(name = "friends", joinColumns = @JoinColumn(name = "friend_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
 	private Set<User> friends;
 
-	public User(String email, String name, String lastName) {
+	public User(String email, String name, String lastName,String direccion,String comunidad) {
 		super();
 		this.email = email;
 		this.name = name;
 		this.lastName = lastName;
+		this.direccion=direccion;
+		this.comunidad=comunidad;
 	}
 
 	public User() {
@@ -144,5 +148,22 @@ public class User {
 			friend.getFriends().remove(user);
 		friends = new HashSet<User>();
 		
-	}             
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getComunidad() {
+		return comunidad;
+	}
+
+	public void setComunidad(String comunidad) {
+		this.comunidad = comunidad;
+	} 
+	
 }

@@ -86,6 +86,7 @@ public class UsersController {
 		Page<User> user = new PageImpl<User>(new LinkedList<User>());
 		if (searchText != null && !searchText.isEmpty()) {
 			user = usersService.searchUserByNameAndEmail(searchText, pageable);
+			user= usersService.searchUserByNameAndComunidad(searchText, pageable);
 		} else {
 			user = usersService.getUsersForUser(pageable,usersLog);
 		}

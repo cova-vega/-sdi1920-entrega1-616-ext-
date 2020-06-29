@@ -22,9 +22,13 @@
 					<tr>
 
 						<th th:text="#{name.message} "></th>
-						<th th:text="#{email.message} "></th>
+						<th th:text="#{email.message} "></th>					
+						<th th:text="#{direccion.message} "></th>
+						<th th:text="#{comunidad.message} "></th>
 						<th th:text="#{addFriend.message} "></th>
 
+						<th class="col-md-1"></th>
+						<th class="col-md-1"></th>
 						<th class="col-md-1"></th>
 						<th class="col-md-1"></th>
 						<th class="col-md-1"></th>
@@ -38,6 +42,9 @@
 
 						<td th:text="${user.name}"></td>
 						<td th:text="${user.email}"></td>
+						<td th:text="${user.direccion}"></td>
+						<td th:text="${user.comunidad}"></td>
+						
 						<td th:if="${#bools.isFalse(#lists.contains(friendsList,user))}">
 							<div th:if="${#bools.isFalse(#lists.contains(requestList, user))}">
 								<button type=" button" th:id="${'peticionButton' + user.id}"
@@ -93,6 +100,8 @@
 					<tr th:each="user : ${usersList}" th:object="${user}">
 						<td th:text="${user.name}"></td>
 						<td th:text="${user.email}"></td>
+						<th th:text="#{user.direccion} "></th>
+						<th th:text="#{user.provincia} "></th>
 					</tr>
 
 					</tr>

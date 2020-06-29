@@ -24,6 +24,7 @@ public class SignUpFormValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "Error.empty");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "Error.empty");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Error.empty");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "direccion", "Error.empty");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Error.empty");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "Error.empty");
 		
@@ -35,6 +36,9 @@ public class SignUpFormValidator implements Validator {
 		}
 		if (user.getEmail().length() < 5 || user.getEmail().length() > 40) {
 			errors.rejectValue("email", "Error.signup.email.length");
+		}
+		if (user.getDireccion().length() < 5 || user.getDireccion().length() > 40) {
+			errors.rejectValue("direccion", "Error.signup.direccion.length");
 		}
 		if (user.getPassword().length() < 5 || user.getPassword().length() > 24) {
 			errors.rejectValue("password", "Error.signup.password.length");
